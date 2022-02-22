@@ -15,9 +15,5 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             'category_name' => 'Alat Kesehatan'
         ]);
-
-        DB::table('categories')->insert([
-            'category_name' => 'Alat Kesehatan'
-        ]);
     }
 }

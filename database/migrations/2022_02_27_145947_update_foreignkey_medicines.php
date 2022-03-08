@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCategoryid1Column extends Migration
+class UpdateForeignkeyMedicines extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddCategoryid1Column extends Migration
     public function up()
     {
         Schema::table('medicines', function (Blueprint $table) {
-            $table->unsignedBigInteger('category_id');
-         
-            $table->foreign('category_id')->references('id')->on('categories1');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
@@ -29,7 +27,6 @@ class AddCategoryid1Column extends Migration
     {
         Schema::table('medicines', function (Blueprint $table) {
             $table->dropForeign(['category_id']);
-            $table->dropColumn('category_id');
         });
     }
 }

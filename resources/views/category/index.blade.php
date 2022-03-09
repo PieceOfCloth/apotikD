@@ -17,8 +17,7 @@
       <tr>
         <th>Nama</th>
         <th>Deskripsi</th>
-        <th>Created at</th>
-        <th>Updated at</th>
+        <th>Daftar Obat</th>
       </tr>
     </thead>
     <tbody>
@@ -26,8 +25,11 @@
         <tr>
             <td>{{$d->name}}</td>
             <td>{{$d->description}}</td>
-            <td>{{$d->created_at}}</td>
-            <td>{{$d->updated_at}}</td>
+            <td>
+              @foreach($d->medicines as $m)
+                {{$m->generic_name}} ({{$m->form}})<br>
+              @endforeach
+            </td>
         </tr>
         @endforeach
     </tbody>

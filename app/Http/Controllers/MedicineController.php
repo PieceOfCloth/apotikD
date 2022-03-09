@@ -19,10 +19,10 @@ class MedicineController extends Controller
         // $result=DB::select(DB::raw("SELECT * FROM medicines"));
 
         // query builder
-        $result=DB::table("medicines")->get();
+        // $result=DB::table("medicines")->get();
 
         // eloquent model
-        // $result=Medicine::all();
+        $result=Medicine::all();
 
         // dd($result);
 
@@ -59,7 +59,9 @@ class MedicineController extends Controller
      */
     public function show(Medicine $medicine)
     {
-        //
+        // dd($medicine);
+        $data=$medicine;
+        return view("medicine.show", compact('data'));
     }
 
     /**
@@ -94,5 +96,42 @@ class MedicineController extends Controller
     public function destroy(Medicine $medicine)
     {
         //
+    }
+
+    public function coba1(){
+        // echo "Test";
+        
+        //query builder filter 
+        $result=DB::table('medicines')
+            ->where("price",">",20000)
+            ->get();
+
+        $result=DB::table('medicines')
+            ->where("generic_name","like",'%fen')
+            ->get();
+        
+        //group by
+        $result=DB::table('medicines')
+            ->select("generic_name")
+            ->groupBy("generic_name")
+            ->get();
+
+        //agregate  
+        $result=DB::table('medicines')->count();
+
+        $result=DB::table('medicines')->max('price');
+
+        //filter + aggregate
+        $result=DB::table('medicines')
+            ->where("generic_name","like",'%fen')
+            ->avg('price');
+        
+        //join
+        $result=DB::table('medicines')
+            ->join('categories','medicines.category_id','=','categories.id')
+            ->get();
+
+
+        dd($result);
     }
 }

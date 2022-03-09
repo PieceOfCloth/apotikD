@@ -19,10 +19,10 @@ class CategoryController extends Controller
         // $result=DB::select(DB::raw("SELECT * FROM categories"));
 
         // query builder
-        $result=DB::table("categories")->get();
+        // $result=DB::table("categories")->get();
 
         // eloquent model
-        // $result=Category::all();
+        $result=Category::all();
 
         // dd($result);
 

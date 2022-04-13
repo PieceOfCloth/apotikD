@@ -23,30 +23,27 @@
       <tr>
         <td>Nama</td>
         <td>{{$data->generic_name}}</td>
-     </tr>
-     <tr>
+      </tr>
+      <tr>
         <td>Bentuk</td>
         <td>{{$data->form}}</td>
-    </tr>
-     <tr>
+      </tr>
+      <tr>
         <td>Formula</td>
         <td>{{$data->restriction_formula}}</td>
-    </tr>
-     <tr>
-        <td>Kategori</td>
-        <td>{{$data->category->name}}</td>
-    </tr>    
-    <tr>
-        <td>Foto</td>
-        <td>
-         <img src="{{asset('images/'.$data->image)}}" />
-        </td>
-    </tr>
-     <tr>
-        <td>Harga</td>
-        <td>{{$data->price}}</td>
       </tr>
-
+      <tr>
+        <td>Kategori</td>
+        <td>{{$data->categories->name}}</td>
+      </tr>
+      <tr>
+        <td>Foto</td>
+        <td><img src="{{asset('images/'.$data->image)}}" /></td>
+      </tr>
+      <tr>
+        <td>Harga</td
+        ><td>{{$data->price}}</td>
+      </tr>
     </tbody>
   </table>
 

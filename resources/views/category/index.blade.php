@@ -27,7 +27,7 @@
             <td>{{$d->description}}</td>
             <td>
               @foreach($d->medicines as $m)
-                {{$m->generic_name}} ({{$m->form}})<br>
+                {{$m->generic_name}}&nbsp;({{$m->form}})<br>
               @endforeach
             </td>
         </tr>
